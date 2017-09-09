@@ -38,7 +38,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
 	normal_distribution<double> dist_y(y, std_y);
 	normal_distribution<double> dist_theta(theta, std_theta);
 
-	num_particles = 1000;
+	num_particles = 100;
 	weights.resize(num_particles);
 	for (int i = 0; i < num_particles; ++i) {
 
