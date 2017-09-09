@@ -65,6 +65,32 @@ inline double * getError(double gt_x, double gt_y, double gt_theta, double pf_x,
 	return error;
 }
 
+
+//function to normalize a vector:
+inline std::vector<double> normalize_vector(std::vector<double> inputVector){
+
+	//declare sum:
+	double sum = 0.0f;
+
+	//declare and resize output vector:
+	std::vector<double> outputVector ;
+	outputVector.resize(inputVector.size());
+
+	//estimate the sum:
+	for (unsigned int i = 0; i < inputVector.size(); ++i) {
+		sum += inputVector[i];
+	}
+
+	//normalize with sum:
+	for (unsigned int i = 0; i < inputVector.size(); ++i) {
+		outputVector[i] = inputVector[i]/sum ;
+	}
+
+	//return normalized vector:
+	return outputVector ;
+}
+
+
 /* Reads map data from a file.
  * @param filename Name of file containing map data.
  * @output True if opening and reading file was successful
